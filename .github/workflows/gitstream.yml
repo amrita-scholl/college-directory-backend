@@ -47,3 +47,11 @@ jobs:
           installation_id: ${{ github.event.inputs.installation_id }}
           resolver_url: ${{ github.event.inputs.resolver_url }}
           resolver_token: ${{ github.event.inputs.resolver_token }}
+
+      - name: Assign Code Experts as Reviewers
+        if: ${{ success() }}
+        uses: linear-b/gitstream-github-action@v2
+        id: assign-experts
+        with:
+          action: add-reviewers@v1
+          reviewers: ${{ steps.rules-engine.outputs.codeExperts }}  # Assigning reviewers based on GitStream’s expert detection
