@@ -36,7 +36,7 @@ automations:
     run:
       - action: explain-code-experts@v1 
         args:
-          gt: 10 
+          gt: 0 
   
   assign_code_experts:
       if:
@@ -44,11 +44,21 @@ automations:
       run:
         - action: add-reviewers@v1
           args:
-            reviewers: {{ repo | codeExperts(gt=1) }}
+            reviewers: {{ repo | codeExperts(gt=0) }}
         - action: explain-code-experts@v1
           args:
-            gt: 1
+            gt: 0
 
+  # Require senior reviewers for specific directory or conditions
+  require_senior_reviewers:
+    if:
+      - {{ files | match(regex=r/) | some }}  # Triggers if any files in `src/ui` are modified
+    run:
+      - action: require-reviewers@v1
+        args:
+          reviewers:
+            - amrita-scholl
+            - amrita-singh06
 # +----------------------------------------------------------------------------+
 # | Custom Expressions                                                         |
 # | https://docs.gitstream.cm/how-it-works/#custom-expressions                 |
