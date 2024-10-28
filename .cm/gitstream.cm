@@ -44,10 +44,10 @@ automations:
       run:
         - action: add-reviewers@v1
           args:
-            reviewers: {{ repo | codeExperts(gt=10) }}
+            reviewers: {{ repo | codeExperts(gt=1) }}
         - action: explain-code-experts@v1
           args:
-            gt: 10
+            gt: 1
 
 # +----------------------------------------------------------------------------+
 # | Custom Expressions                                                         |
