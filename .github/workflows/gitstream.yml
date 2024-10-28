@@ -58,3 +58,9 @@ jobs:
         with:
           action: add-reviewers@v1
           reviewers: ${{ steps.rules-engine.outputs.codeExperts || 'amrita-scholl,amrita-singh06' }}  # Fallback to default reviewers
+      - name: Require Senior Reviewers for UI Changes
+        if: ${{ success() && contains(steps.rules-engine.outputs.modifiedFiles, 'src/ui/') }}
+        uses: linear-b/gitstream-github-action@v2
+        with:
+          action: require-reviewers@v1
+          reviewers: ${{ steps.rules-engine.outputs.codeExperts || 'amrita-scholl,amrita-singh06' }}
