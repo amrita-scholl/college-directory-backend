@@ -52,7 +52,7 @@ automations:
   # Require senior reviewers for specific directory or conditions
   require_senior_reviewers:
     if:
-      - {{ files | match(regex=r/src/ui/) | some }}  # Triggers if any files in `src/ui` are modified
+      - {{ true }}  # Triggers if any files in `src/ui` are modified
     run:
       - action: require-reviewers@v1
         args:
