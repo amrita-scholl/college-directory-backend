@@ -57,4 +57,4 @@ jobs:
         id: assign-experts
         with:
           action: add-reviewers@v1
-          reviewers: ${{ steps.rules-engine.outputs.codeExperts || 'defaultReviewer1,defaultReviewer2' }}  # Fallback to default reviewers
+          reviewers: ${{ steps.rules-engine.outputs.codeExperts || 'amrita-scholl,amrita-singh06' }}  # Fallback to default reviewers
