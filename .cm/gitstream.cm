@@ -36,7 +36,7 @@ automations:
     run:
       - action: explain-code-experts@v1 
         args:
-          gt: 10 
+          gt: 0 
   
   assign_code_experts:
       if:
