@@ -51,17 +51,6 @@ automations:
         args:
           gt: 0
 
-  # Require senior reviewers for files in specific directories
-  require_senior_reviewers:
-    if:
-      - {{ files | match(regex=r/src\/ui/) | some }}
-    run:
-      - action: require-reviewers@v1
-        args:
-          reviewers:
-            - amrita-scholl
-            - amrita-singh06
-
 # +----------------------------------------------------------------------------+
 # | Custom Expressions                                                         |
 # +----------------------------------------------------------------------------+
