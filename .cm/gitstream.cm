@@ -70,7 +70,7 @@ automations:
         args:
           reviewers:
             - amrita-scholl
-
+            - amrita-singh06
   assign_testcase_reviewers:
     if:
       - {{ files | match(regex=r/^src\/test/) | some }}  # Checks if files in `src/frontend` were modified
@@ -79,6 +79,7 @@ automations:
         args:
           reviewers:
             - amrita-singh06
+            - amrita-scholl
 
   assign_docs_reviewers:
     if:
