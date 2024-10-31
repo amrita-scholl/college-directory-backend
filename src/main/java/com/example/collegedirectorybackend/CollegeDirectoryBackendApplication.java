@@ -9,9 +9,5 @@ public class CollegeDirectoryBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CollegeDirectoryBackendApplication.class, args);
 	}
-
-
-
-
 }
 
